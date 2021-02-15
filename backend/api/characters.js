@@ -50,5 +50,15 @@ module.exports = app => {
         })
     }
 
-    return { create, get, getById }
+    const remove = async (req, res) => {
+        await Characters.deleteOne(req.param.id, (err) => {
+            if (err) {
+                res.status(500).send(err)
+            } else {
+                res.send("Personagem removido!")
+            }
+        })
+    }
+
+    return { create, get, getById, remove }
 }

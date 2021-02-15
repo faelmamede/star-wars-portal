@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-title>Excluir Personagem</mat-card-title>
+    <form>
+        <mat-form-field class="input-character">
+           <input matInput placeholder="Nome" [value]="character.name" name="name" disabled> 
+        </mat-form-field>
+        <mat-form-field class="input-character">
+           <input matInput placeholder="Idade" [value]="character.age" name="age" disabled> 
+        </mat-form-field>
+    </form>
+
+    <button mat-raised-button (click)="deleteCharacter()" color="warn">
+        Deletar
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Voltar
+    </button>
+
+</mat-card>
+

@@ -24,6 +24,7 @@ import { HomeComponent } from './components/views/home/home.component';
 import { CharactersViewComponent } from './components/views/characters-view/characters-view.component';
 import { CharacterReadComponent } from './components/character/character-read/character-read.component';
 import { CharacterCreateComponent } from './components/character/character-create/character-create.component';
+import { CharacterRemoveComponent } from './components/character/character-remove/character-remove.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CharacterCreateComponent } from './components/character/character-creat
     HomeComponent,
     CharactersViewComponent,
     CharacterReadComponent,
-    CharacterCreateComponent
+    CharacterCreateComponent,
+    CharacterRemoveComponent
   ],
   imports: [
     BrowserModule,

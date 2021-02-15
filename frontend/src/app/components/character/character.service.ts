@@ -30,10 +30,26 @@ export class CharacterService {
     );
   }
 
+  readById(id: string): Observable<Character> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Character>(url).pipe(
+      map(obj => obj),
+      catchError(err => this.errorHandler(err))
+    );
+  }
+
   create(character: Character): Observable<Character> {
     return this.http.post<Character>(this.baseUrl, character).pipe(
       map(obj => obj),
       catchError(err => this.errorHandler(err.error))
+    );
+  }
+
+  delete(id: string): Observable<Character> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<Character>(url).pipe(
+      map(obj => obj),
+      catchError(err => this.errorHandler(err))
     );
   }
 

@@ -2,8 +2,22 @@
     <mat-card-title>Personagens cadastrados</mat-card-title>
     <ul class="character-list">
         <li *ngFor="let character of characters" class="character-item"> 
-            <a (click)="toggleCharacterView(character['_id'])">  <span class="name"> Nome:</span> {{ character.name }}</a> 
-            <span *ngIf="character.isActive"> <span class="age"> Idade: </span> {{ character.age }}</span>
+            <div class="container-info">
+                <a (click)="toggleCharacterView(character['_id'])"> <span class="name"> Nome:</span> {{ character.name }}</a> 
+                <span *ngIf="character.isActive"> <span class="age"> Idade: </span> {{ character.age }}</span>
+            </div>
+            <div>
+                <a routerLink="/characters/update/{{ character['_id'] }}" class="edit">
+                    <i class="material-icons">
+                        edit
+                    </i>
+                </a>
+                <a routerLink="/characters/remove/{{ character['_id'] }}" class="delete">
+                    <i class="material-icons">
+                        delete
+                    </i>
+                </a>
+            </div>
         </li>
     </ul>
 </mat-card>

@@ -4,6 +4,12 @@
     flex-direction: column;
 }
 
+.container-info {
+    display: flex;
+    justify-content: space-between;
+    min-width: 300px;
+}
+
 .character-list a {
     cursor: pointer;
 }
@@ -12,7 +18,7 @@
     margin: 5px;
     display: flex;
     flex-direction: row;
-    max-width: 200px;
+    /* max-width: 00px; */
     justify-content: space-between;
 
     font-size: 0.9rem;
@@ -21,4 +27,16 @@
 .character-item .name, 
 .character-item .age {
     font-weight: 700;
+}
+
+.edit {
+    margin-right: 10px;
+}
+
+.edit > i {
+    color: #d9cd26;
+}
+
+.delete > i {
+    color: #e35e6b;
 }
