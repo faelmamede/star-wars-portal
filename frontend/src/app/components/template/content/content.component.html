@@ -1,0 +1,23 @@
+<mat-sidenav-container class="content">
+    <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64">
+        <mat-nav-list class="nav-list">
+            <a mat-list-item routerLink="/">
+                <i class="material-icons" alt="tela inicial">
+                    home
+                </i>
+                Página Inicial
+            </a>
+            <a mat-list-item routerLink="/characters">
+                <i class="icon-grogu">
+                    <img src="../assets/img/baby-yoda.png" alt="personagens">
+                </i>
+                Personagens
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content class="main-content">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

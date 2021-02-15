@@ -1,0 +1,15 @@
+.content .sidenav {
+    width: 180px;
+}
+
+.content .sidenav i {
+    padding-right: 10px;
+}
+
+.icon-grogu img {
+    max-height: 22px;
+}
+
+.main-content {
+    padding: 16px;
+}
