@@ -1,0 +1,20 @@
+<mat-card>
+    <mat-card-title>Novo Personagem</mat-card-title>
+    <form>
+        <mat-form-field class="input-character">
+           <input matInput placeholder="Nome" [(ngModel)]="character.name" name="name"> 
+        </mat-form-field>
+        <mat-form-field class="input-character">
+           <input matInput placeholder="Idade" [(ngModel)]="character.age" name="age"> 
+        </mat-form-field>
+    </form>
+
+    <button mat-raised-button (click)="createCharacter()" class="button-salvar">
+        Salvar
+    </button>
+    <button mat-raised-button (click)="cancel()">
+        Voltar
+    </button>
+
+</mat-card>
+

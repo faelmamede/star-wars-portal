@@ -30,8 +30,16 @@ export class CharacterService {
     );
   }
 
+  create(character: Character): Observable<Character> {
+    return this.http.post<Character>(this.baseUrl, character).pipe(
+      map(obj => obj),
+      catchError(err => this.errorHandler(err.error))
+    );
+  }
+
   errorHandler(err: any): Observable<any> {
-    this.showInfo('Erro!', true);
+    this.showInfo(err, true);
+    console.log(err)
     return EMPTY;
   }
 }

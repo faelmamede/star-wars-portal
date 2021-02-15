@@ -14,6 +14,8 @@
     flex-direction: row;
     max-width: 200px;
     justify-content: space-between;
+
+    font-size: 0.9rem;
 }
 
 .character-item .name, 
