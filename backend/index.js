@@ -1,22 +1,16 @@
 const app = require('express')()
-const bodyParser = require('body-parser')
-const cors = require('cors')
+
 const consign = require('consign')
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb://localhost/star_wars_portal', { useNewUrlParser: true , useUnifiedTopology: true })
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'Erro na Ligação ao MongoDB'))
+require('./config/mongodb')
 
 app.mongoose = mongoose
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(cors())
-
 consign()
-    .include('./api/validations.js')
-    .include('./api')
+    .include('./config/parsers.js')
+    .then('./api/validations.js')
+    .then('./api')
     .into(app)
 
 const PORT = 3000
