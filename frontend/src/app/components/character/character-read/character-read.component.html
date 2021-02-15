@@ -1,0 +1,9 @@
+<mat-card>
+    <mat-card-title>Personagens cadastrados</mat-card-title>
+    <ul class="character-list">
+        <li *ngFor="let character of characters" class="character-item"> 
+            <a (click)="toggleCharacterView(character['_id'])">  <span class="name"> Nome:</span> {{ character.name }}</a> 
+            <span *ngIf="character.isActive"> <span class="age"> Idade: </span> {{ character.age }}</span>
+        </li>
+    </ul>
+</mat-card>

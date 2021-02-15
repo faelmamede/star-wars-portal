@@ -1,0 +1,22 @@
+.character-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.character-list a {
+    cursor: pointer;
+}
+
+.character-item {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    max-width: 200px;
+    justify-content: space-between;
+}
+
+.character-item .name, 
+.character-item .age {
+    font-weight: 700;
+}
