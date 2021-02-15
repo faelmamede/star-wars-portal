@@ -7,7 +7,7 @@ module.exports = app => {
         age: Number
     })
 
-    const create = (req, res) => {
+    const create = async (req, res) => {
         const character = { ...req.body }
 
         try {
@@ -22,11 +22,11 @@ module.exports = app => {
             name: character.name,
             age: character.age
         })
-        newCharacter.save(function (err) {
+        await newCharacter.save(function (err) {
             if (err) {
                 res.status(500).send(err)
             }
-            res.send('Criado com sucesso')
+            res.send('Criado com sucesso!')
         })
     }
 
@@ -51,7 +51,7 @@ module.exports = app => {
     }
 
     const remove = async (req, res) => {
-        await Characters.deleteOne(req.param.id, (err) => {
+        await Characters.deleteOne( { _id: req.params.id }, (err) => {
             if (err) {
                 res.status(500).send(err)
             } else {

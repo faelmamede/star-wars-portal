@@ -14,12 +14,11 @@ export class CharacterService {
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
-  showInfo(info: string, isError: boolean = false): void {
+  showInfo(info: string): void {
     this.snackBar.open(info, 'fechar', {
       duration: 3000,
       horizontalPosition: "right",
-      verticalPosition: "top",
-      panelClass: isError ? ['info-error'] : ['msg-success']
+      verticalPosition: "top"
     });
   }
 
@@ -62,7 +61,8 @@ export class CharacterService {
   }
 
   errorHandler(err: any): Observable<any> {
-    this.showInfo(err, true);
+    if (err.error) this.showInfo(err.text);
+    else this.showInfo(err);
     console.log(err)
     return EMPTY;
   }
