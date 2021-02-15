@@ -49,8 +49,16 @@ export class CharacterService {
     const url = `${this.baseUrl}/${id}`;
     return this.http.delete<Character>(url).pipe(
       map(obj => obj),
-      catchError(err => this.errorHandler(err))
+      catchError(err => this.errorHandler(err.error))
     );
+  }
+
+  update(character: Character): Observable<Character> {
+    const url = `${this.baseUrl}/${character._id}`;
+    return this.http.put<Character>(url, character).pipe(
+      map(obj => obj),
+      catchError(err => this.errorHandler(err.error))
+    )
   }
 
   errorHandler(err: any): Observable<any> {

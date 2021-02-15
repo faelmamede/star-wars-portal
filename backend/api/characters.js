@@ -55,10 +55,30 @@ module.exports = app => {
             if (err) {
                 res.status(500).send(err)
             } else {
-                res.send("Personagem removido!")
+                res.status(200).send("Personagem removido!")
             }
         })
     }
 
-    return { create, get, getById, remove }
+    const update = async (req, res) => {
+        const character = { ...req.body }
+
+        try {
+            existsOrError(character.name, 'Nome não informado!')
+            existsOrError(character.age, 'Idade não informada!')
+
+        } catch (msg) {
+            return res.status(400).send(msg)
+        }
+
+        await Characters.updateOne(req.param.id, character, (err) => {
+            if (err) {
+                res.status(500).send(err)
+            } else {
+                res.status(200).send("Personagem atualizado!")
+            }
+        })
+    }
+
+    return { create, get, getById, remove, update }
 }
